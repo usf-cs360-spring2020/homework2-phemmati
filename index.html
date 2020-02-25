@@ -166,7 +166,7 @@
 
 .cell text {
   font-weight: bold;
-  font: 6px sans-serif
+
   text-transform: capitalize;
   fill: black;
 }
@@ -193,17 +193,8 @@ circle {
 
 </style>
 
-  </head>
+  
 
-
-
- 
-
- 
-
-
-     
-      
       <h6>D3 Implementation:</h6>
       
       <h3>US Airlines Popularity Between Passengers</h3>
@@ -321,7 +312,7 @@ svg.append("text").attr("x", 620).attr("y", 190).text("For profit").style("font-
       .each(plot);
 
   // Titles for the diagonal.
-  cell.filter(function(d) { return d.i === d.j; }).append("text")
+  cell.filter(function(d) { return d.i === d.j; }).append("text").style("font","10px sans-serif").style("font-weight","bold")
       .attr("x", padding-10)
       .attr("y", padding-8)
       .attr("dy", ".71em")

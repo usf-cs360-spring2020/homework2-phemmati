@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -261,6 +261,7 @@
       <!-- End page content -->
     </div>
   </section>
+  </body>
 
   <!-- Page footer -->
   <!-- https://bulma.io/documentation/layout/footer/ -->
@@ -310,6 +311,123 @@
   });
   </script>
   <!-- End mobile menu responsiveness -->
-  </body>
+  
 
-</html>
+<script src="//d3js.org/d3.v5.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500,
+    size = 110,
+    padding = 30;
+
+var x = d3.scaleLinear()
+    .range([padding , size - padding / 2]);
+
+var y = d3.scaleLinear()
+    .range([size - padding / 2, padding+10 ]);
+
+var xAxis = d3.axisBottom()
+    .scale(x)
+    .ticks(8);
+
+var yAxis = d3.axisLeft()
+    .scale(y)
+    .ticks(8);
+
+var color = d3.scaleOrdinal(d3.schemeCategory10);
+
+d3.csv("data.csv").then(function(data) {
+  
+  var domainByTrait = {},
+      traits = d3.keys(data[0]).filter(function(d) { return d !== "Type"; }),
+      n = traits.length;
+
+  traits.forEach(function(trait) {
+    domainByTrait[trait] = d3.extent(data, function(d) { return d[trait]; });
+  });
+
+  xAxis.tickSize(size * n+25);
+  yAxis.tickSize(-size * n-25);
+
+ 
+
+  var svg = d3.select("#vis").append("svg")
+      .attr("width", width)
+      .attr("height", height)
+    .append("g")
+      .attr("transform", "translate(" + padding + "," + padding / 2 + ")");
+  
+  // Handmade legend
+svg.append("circle").attr("cx",600).attr("cy",130).attr("r", 3).style("fill", "#2ca02c")
+svg.append("circle").attr("cx",600).attr("cy",160).attr("r", 3).style("fill", "#ff7f0e")
+svg.append("circle").attr("cx",600).attr("cy",190).attr("r", 3).style("fill", "#1f77b4")
+svg.append("text").attr("x", 620).attr("y", 130).text("Public").style("font-size", "10px").attr("alignment-baseline","middle")
+svg.append("text").attr("x", 620).attr("y", 160).text("Private- non profit").style("font-size", "10px").attr("alignment-baseline","middle")
+svg.append("text").attr("x", 620).attr("y", 190).text("For profit").style("font-size", "10px").attr("alignment-baseline","middle")
+
+
+  svg.selectAll(".x.axis")
+      .data(traits)
+    .enter().append("g")
+      .attr("class", "x axis")
+      .attr("transform", function(d, i) { return "translate(" + (n - i -1) * size + ",0)"; })
+      .each(function(d) { x.domain(domainByTrait[d]); d3.select(this).call(xAxis).selectAll("text") 
+            .style("text-anchor", "end")
+            .attr("dx", "-465")
+            .attr("dy", "-465")
+            .attr("transform", function(d) {
+                return "rotate(-90)" 
+                }); });
+
+  svg.selectAll(".y.axis")
+      .data(traits)
+    .enter().append("g")
+      .attr("class", "y axis")
+      .attr("transform", function(d, i) { return "translate(0," + i * size + ")"; })
+      .each(function(d) { y.domain(domainByTrait[d]); d3.select(this).call(yAxis); });
+
+  var cell = svg.selectAll(".cell")
+      .data(cross(traits, traits))
+    .enter().append("g")
+      .attr("class", "cell")
+      .attr("transform", function(d) { return "translate(" + (n - d.i - 1) * size + "," + d.j * size + ")"; })
+      .each(plot);
+
+  // Titles for the diagonal.
+  cell.filter(function(d) { return d.i === d.j; }).append("text")
+      .attr("x", padding-10)
+      .attr("y", padding-8)
+      .attr("dy", ".71em")
+      .text(function(d) { return d.x; });
+
+  function plot(p) {
+    var cell = d3.select(this);
+
+    x.domain(domainByTrait[p.x]);
+    y.domain(domainByTrait[p.y]);
+
+    cell.append("rect")
+        .attr("class", "frame")
+        .attr("x", padding / 2)
+        .attr("y", padding / 2)
+        .attr("width", size - 5)
+        .attr("height", size -5);
+
+    cell.selectAll("circle")
+        .data(data)
+      .enter().append("circle")
+        .attr("cx", function(d) { return x(d[p.x]); })
+        .attr("cy", function(d) { return y(d[p.y]); })
+        .attr("r", 2)
+        .style("fill", function(d) { return color(d.Type); });
+  }
+});
+
+function cross(a, b) {
+  var c = [], n = a.length, m = b.length, i, j;
+  for (i = -1; ++i < n;) for (j = -1; ++j < m;) c.push({x: a[i], i: i, y: b[j], j: j});
+  return c;
+}
+
+</script>

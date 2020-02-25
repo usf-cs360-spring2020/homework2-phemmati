@@ -1,18 +1,12 @@
 <!DOCTYPE html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- TODO: Change title -->
-    <title>Scatterplot Matrix</title>
-
-    <!-- Load Bulma from CDN (consider saving it to repository instead) -->
-    <!-- https://bulma.io/ -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+<head>
+<meta charset="utf-8">
+<title>Bar Chart</title>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
 
     <!-- Load Font Awesome 5 (free) icons -->
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-  </head>
+</head>
 <style>
 
 svg {
@@ -59,16 +53,18 @@ circle.hidden {
 }
 
 </style>
+
 <body>
-  <!-- Page header -->
+
+<!-- Page header -->
   <!-- https://bulma.io/documentation/layout/hero/ -->
   <section class="hero is-info is-bold">
     <div class="hero-body">
       <div class="container">
         <!-- TODO: Change title -->
-        <h1 class="title">The Role of Colleges in Intergenerational Mobility</h1>
+        <h1 class="title">Air Traffic Visualizations for San Francisco Airport</h1>
         <!-- TODO: Change subtitle -->
-        <h2 class="subtitle">Website Subtitle</h2>
+        <h2 class="subtitle">Air Traffic Passenger Statistics Visualizations for 2005-2019</h2>
       </div>
     </div>
   </section>
@@ -108,10 +104,22 @@ circle.hidden {
             </a>
 
             <div class="navbar-dropdown">
-              <a class="navbar-item" href="plot.html">
+              <a href="line.html" class="navbar-item">
                 <span class="icon"><i class="fas fa-chart-line"></i></span>
-                <span>Scatter Plot Matrix</span>
+                <span>Line Chart</span>
               </a>
+              <a href="area_chart.html" class="navbar-item">
+                <span class="icon"><i class="fas fa-chart-area"></i></span>
+                <span>Area Chart</span>
+              </a>
+
+              <hr class="navbar-divider">
+
+              <a href="bar_chart.html" class="navbar-item">
+                <span class="icon"><i class="fas fa-chart-bar"></i></span>
+                <span>Bar Chart</span>
+              </a>
+              
             </div>
           </div>
         </div>
@@ -119,8 +127,12 @@ circle.hidden {
         <!-- Right navbar items -->
         <div class="navbar-end">
           <!-- TODO: Update as needed -->
+          <a class="navbar-item" href="grade.html" title="About">
+            <span class="icon"><i class="fas fa-tasks"></i></span>
+            <span>Grade</span>
+          </a>
 
-          <a class="navbar-item" href="#about" title="About">
+          <a class="navbar-item" href="about.html" title="About">
             <span class="icon"><i class="fas fa-info-circle"></i></span>
             <span>About</span>
           </a>
@@ -129,13 +141,16 @@ circle.hidden {
     </div>
   </nav>
   <!-- End page navigation -->
-
+<body>
   <section class="section">
     <div class="container content">
       <h1>Frequesncy of Passengers vs Regions</h1><br>
       
       <h6>D3 Implementation:</h6>
     
+   
+  
+<svg width="960" height="500"></svg>
 <script src="//d3js.org/d3.v5.min.js"></script>
 <script>
 
@@ -255,83 +270,26 @@ function cross(a, b) {
 
 </script>
 
-<h3>Instruction</h3>
-
-<p>
+<p class="is-size-7 has-text-grey">
         The plot shows total number of passengers traveling to different regions in each year starting from 2005 towards the end of 2019. Number of passengers is encoded by the length of the bar, so longer bars represent higher number of passengers. Horizontal line indicates the destination or origin regions of the operated flights. It includes both domestic and International flights.
       </p>
 
-      <h3>Data Wrangling</h3>
-
-
-      <p>
-        Original dataset has been used for this visualization where GEO Region, Passengers count and Year of Activity Period columns have been used. 
+      <p class="is-size-7 has-text-grey">
+        Original dataset has been used for this visualization where GEO Region, Passengers count and Year of Activity Period columns have been used. In conclusion, Number of passengers who traveled inside United States are the highest over this time period. 
 
       </p>
-
-      <h3>Conclusion</h3>
-
-      <p>In conclusion, Number of passengers who traveled inside United States are the highest over this time period. </p>
       
-  <h6>Tableau Prototype:</h6>
+  <h6>Tableau:</h6>
       
       <figure class="media-left">
             <p class="image is-960x500"><img src="Bar.jpg"></p>
           </figure>
 
-          </div>
+      
+    </div>
   </section>
   
   </body>
-
-
-      
-       <h2 id="about">About</h2>
-
-        <!-- Profile box -->
-        <!-- https://bulma.io/documentation/layout/media-object/ -->
-        <article class="media">
-          <!-- TODO: Replace with profile photo -->
-          <figure class="media-left">
-            <p class="image is-128x128" ><img class="is-rounded" src="profile.JPG"></p>
-          </figure>
-
-          <div class="media-content">
-            <div class="content">
-              <!-- TODO: Replace with contact information -->
-              <p>
-                <strong>Parisa Hemmati</strong><br/>
-                CS Major, <a href="https://www.usfca.edu/">University of San Francisco</a><br/>
-                <em>Expected Graduation: May 2022</em><br/>
-                <i class="fas fa-envelope"></i> <a href="mailto:username@dons.usfca.edu">Phemmati@dons.usfca.edu</a>
-              </p>
-
-              <!-- TODO: Replace with brief biography -->
-              <p>
-                I am a Computer Science graduate student with experience on Wireless protocol development. Beside programming enthusiastic, I am a globetrotter who loves to travel to different part of the world. I have traveled to more than 30 countries up to now and still counting. Reading books and playing piano are my hobbies.
-              </p>
-
-              <!-- TODO: Replace or remove tags -->
-              <!-- https://bulma.io/documentation/elements/tag/ -->
-              <div class="heading">Skills</div>
-
-              <div class="tags">
-                <span class="tag">Python</span>
-                <span class="tag">C</span>
-                <span class="tag">Java</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">HTML</span>
-                <span class="tag">CSS</span>
-                <span class="tag">Tableau</span>
-                <span class="tag">Node.js</span>
-              </div>
-            </div>
-          </div>
-        </article>
-        <!-- End profile box -->
-    
-
-       
 
 
 <!-- Page footer -->

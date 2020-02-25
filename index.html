@@ -219,9 +219,130 @@ circle {
             <p class="image is-960x500"><img src="line.jpg"></p>
           </figure>
 
+    
+    
+<h2 id="grade">Grade</h2>
+
+        <!-- TODO: Remove custom style if no longer needed -->
+        <style>
+          table.grades tbody tr td:nth-child(1),
+          table.grades tbody tr td:nth-child(2) {
+            text-align: center;
+          }
+        </style>
+
+        <!-- TODO: Change or remove table -->
+        <!-- https://bulma.io/documentation/elements/table/ -->
+        <table class="table is-hoverable is-bordered grades">
+          <thead>
+            <tr>
+              <th>Letter</th>
+              <th>Done?</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+
+          <tbody>
+         
+                <tr>
+                  <td>C</td>
+                  <td><i class="has-text-success fas fa-check-circle"></i></td>
+                  <td>
+                    <p>This grade requirements has been successfully completed as:</p>
+                    <ul>
+                      <li>Created 3 different Tableau visualizations.</li>
+                      <li>Used 2 different encodings schemes:<ul>
+                          <li>Bar Chart</li>
+                          <li>Area Chart</li>
+                          <li>Line Chart</li>
+                        </ul>
+                      </li>
+                                        
+                    </ul>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>B</td>
+                  <td><i class="has-text-success fas fa-check-circle"></i></td>
+                  <td>
+                    <p>This grade requirements has been successfully completed as:</p>
+                    <ul>
+                      <li>Implemented one of the Tableau prototypes(Bar Chart) in D3 Version 5</li>
+                      <li>Matched as much of the design as possible from my Tableau prototype.</li>
+                   
+                    </ul>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>A</td>
+                  <td><i class="has-text-success fas fa-check-circle"></i></td>
+                  <td>
+                    <p>This grade requirements has been successfully completed as:</p>
+                    <ul>
+                      <li>Implemented one of the Tableau prototypes(Line Chart) in D3 Version 5 </li>
+                      <li>Matched as much of the design as possible from my Tableau prototype.</li>
+                      
+                    </ul>
+                  </td>
+                </tr>
       
+          </tbody>
+
+        </table>
+
+  
+
+        <h2 id="about">About Me</h2>
+
+        <!-- Profile box -->
+        <!-- https://bulma.io/documentation/layout/media-object/ -->
+        <article class="media">
+          <!-- TODO: Replace with profile photo -->
+          <figure class="media-left">
+            <p class="image is-128x128" ><img class="is-rounded" src="parisa.JPG"></p>
+          </figure>
+
+          <div class="media-content">
+            <div class="content">
+              <!-- TODO: Replace with contact information -->
+              <p>
+                <strong>Parisa Hemmati</strong><br/>
+                CS Major, <a href="https://www.usfca.edu/">University of San Francisco</a><br/>
+                <em>Expected Graduation: May 2022</em><br/>
+                <i class="fas fa-envelope"></i> <a href="mailto:username@dons.usfca.edu">Phemmati@dons.usfca.edu</a>
+              </p>
+
+              <!-- TODO: Replace with brief biography -->
+              <p>
+                I am a Computer Science graduate student with experience on Wireless protocol development. Beside programming enthusiastic, I am a globetrotter who loves to travel to different part of the world. I have traveled to more than 30 countries up to now and still counting. Reading books and playing piano are my hobbies.
+              </p>
+
+              <!-- TODO: Replace or remove tags -->
+              <!-- https://bulma.io/documentation/elements/tag/ -->
+              <div class="heading">Skills</div>
+
+              <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">C</span>
+                <span class="tag">Java</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">Tableau</span>
+                <span class="tag">Node.js</span>
+              </div>
+            </div>
+          </div>
+        </article>
+        <!-- End profile box -->
+
+      </div>
+      <!-- End page content -->
     </div>
   </section>
+
   
   </body>
 
@@ -349,59 +470,6 @@ function cross(a, b) {
 
 </script>
 
-
-
-
-  
-
-        <h2 id="about">About Me</h2>
-
-        <!-- Profile box -->
-        <!-- https://bulma.io/documentation/layout/media-object/ -->
-        <article class="media">
-          <!-- TODO: Replace with profile photo -->
-          <figure class="media-left">
-            <p class="image is-128x128" ><img class="is-rounded" src="parisa.JPG"></p>
-          </figure>
-
-          <div class="media-content">
-            <div class="content">
-              <!-- TODO: Replace with contact information -->
-              <p>
-                <strong>Parisa Hemmati</strong><br/>
-                CS Major, <a href="https://www.usfca.edu/">University of San Francisco</a><br/>
-                <em>Expected Graduation: May 2022</em><br/>
-                <i class="fas fa-envelope"></i> <a href="mailto:username@dons.usfca.edu">Phemmati@dons.usfca.edu</a>
-              </p>
-
-              <!-- TODO: Replace with brief biography -->
-              <p>
-                I am a Computer Science graduate student with experience on Wireless protocol development. Beside programming enthusiastic, I am a globetrotter who loves to travel to different part of the world. I have traveled to more than 30 countries up to now and still counting. Reading books and playing piano are my hobbies.
-              </p>
-
-              <!-- TODO: Replace or remove tags -->
-              <!-- https://bulma.io/documentation/elements/tag/ -->
-              <div class="heading">Skills</div>
-
-              <div class="tags">
-                <span class="tag">Python</span>
-                <span class="tag">C</span>
-                <span class="tag">Java</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">HTML</span>
-                <span class="tag">CSS</span>
-                <span class="tag">Tableau</span>
-                <span class="tag">Node.js</span>
-              </div>
-            </div>
-          </div>
-        </article>
-        <!-- End profile box -->
-
-      </div>
-      <!-- End page content -->
-    </div>
-  </section>
 
   <!-- Page footer -->
   <!-- https://bulma.io/documentation/layout/footer/ -->

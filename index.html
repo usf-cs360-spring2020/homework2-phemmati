@@ -24,9 +24,9 @@
     <div class="hero-body">
       <div class="container">
         <!-- TODO: Change title -->
-        <h1 class="title">Air Traffic Visualizations for San Francisco Airport</h1>
+        <h1 class="title">Baseline Cross-Sectional Estimates of Child and Parent Income Distributions by College</h1>
         <!-- TODO: Change subtitle -->
-        <h2 class="subtitle">Air Traffic Passenger Statistics Visualizations for 2005-2019</h2>
+        
       </div>
     </div>
   </section>
@@ -59,14 +59,10 @@
             <span>Data</span>
           </a>
 
-          <!-- TODO: Modify or remove dropdown -->
-          <div class="navbar-item has-dropdown is-hoverable">
+          
             <a class="navbar-link" href="#visualizations">
               Visualizations
             </a>
-
-           
-          </div>
         </div>
 
         <!-- Right navbar items -->
@@ -101,41 +97,52 @@
         </p>
 
 
-        <p>"On any given day, more than 87,000 flights are in the skies in the United States. Only one-third are commercial carriers, like American, United or Southwest. On an average day, air traffic controllers handle 28,537 commercial flights (major and regional airlines), 27,178 general aviation flights (private planes), 24,548 air taxi flights (planes for hire), 5,260 military flights and 2,148 air cargo flights (Federal Express, UPS, etc.). At any given moment, roughly 5,000 planes are in the skies above the United States. In one year, controllers handle an average of 64 million takeoffs and landings." - From the National Air Traffic Controllers Association</p>
+        <p>The goal for this website is to visualize the “Baseline Cross-Sectional Estimates of Child and Parent Income Distributions by College” dataset from the “<a href="https://opportunityinsights.org/paper/mobilityreportcards/">Mobility Report Cards: The Role of Colleges in Intergenerational Mobility</a>” project from <a href="https://opportunityinsights.org/">Opportunity Insights</a>.</p>
 
-        <p>The goal for this website is to visualize and discuss a dataset related to San Francisco International Airport air traffic during 2005-2019.</p>
+        <p>In visualization section we analyze the role of colleges in upward income mobility by constructing publicly available mobility report cards – estimates of student's earnings in their early thirties and their parent's incomes – for each college in America. We use de-identified data from the federal government covering all college students from 1999-2013, building on the Department of Education’s College Scorecard.</p>
 
+        
         <h2 id="data">About Dataset</h2>
 
 
+          <p>
+          <b>Title:</b> Baseline Cross-Sectional Estimates of Child and Parent Income Distributions by College <br />
+          <b>Source:</b> <a href="https://opportunityinsights.org/paper/mobilityreportcards/">https://opportunityinsights.org/paper/mobilityreportcards/</a><br />
+          <b>Publishing Department:</b> <a href="https://opportunityinsights.org/">Opportunity Insights</a><br />
+          <b>Rows:</b> 2200 <br />
+          <b>Columns:</b> 36 <br />
+          <b>Accessed:</b> <em>February 20, 2020</em><br />
+        </p>
 
-        <p>This dataset, consists of details about around 22000 flights, tracks commercial flights to/from San Francisco International Airport(SFO)airport. You can find the original dataset <a href="https://data.sfgov.org/Transportation/Air-Traffic-Passenger-Statistics/rkru-6vcg/">here</a>, The data has been last updated on December 30, 2019 and has been accessed on February 10,2020.</p>
 
-        <p>Also you can find the license <a href="https://opendatacommons.org/licenses/pddl/1.0/">here</a>.</p>
+
+        <p>This dataset reports the baseline estimates of parent's and children's income distributions by college. We calculate college-level values as means over students in the 1980, 1981 and 1982 birth cohorts. When data for a college from any of these cohorts are incomplete, we use data from 1983 and 1984 cohorts to obtain an estimate.</p>
+
+        
 
 
         <blockquote>
           <p>
-            "This data is made available under the Public Domain Dedication and License v1.0 whose full text can be found at: <a href="http://www.opendatacommons.org/licenses/pddl/1.0/">www.opendatacommons.org/licenses/pddl/1.0/</a>"
+            <a href="https://opportunityinsights.org/">Opportunity Insights</a>, as part of their research studies, put out publicly available datasets that can be used by researchers and practitioners to support their own work.
           </p>
-          <cite><p> <a href="https://opendatacommons.org/licenses/pddl/1.0/">License</a>.</p></cite>
+          
         </blockquote>
 
-        <p>Overall, original dataset has 12 columns, below you can find important columns that were used on this website's visualizations and their detailed description:</p>
+        <p>Overall, original dataset has 36 columns, below you can find important columns that some of them were used on this website's visualizations and their detailed description:</p>
 
         <ol>
 
-          <li><strong>Activity Period:</strong> Years of active operation of flights from 2005 to 2019 .</li>
+          <li><strong>Type:</strong> 1 = public, 2 = private non-profit, 3 = for-profit.</li>
 
-          <li><strong>Operating Airline:</strong> Name of operating airline</li>
+          <li><strong>mr_kq5_pq1:</strong> Mobility rate (joint probability of parents in bottom quintile and child in top quintile of the income distribution)</li>
 
-          <li><strong>Operating Airline IATA Code:</strong> IATA code related to the airline </li>
+          <li><strong>mr_ktop1_pq1:</strong> Upper-tail mobility rate (joint probability of parents in bottom quintile and child in top 1% of the income distribution).</li>
 
-          <li><strong>GEO Summary:</strong> Geographic summary of the data (International or Domestic) </li>
+          <li><strong>k_rank_cond_parq[PARQUINT]:</strong> Mean kid earnings rank conditional on parent in quintile[PARQUINT].</li>
 
-          <li><strong>GEO Region:</strong> Regions with flight routes to/from SFO </li>
+          <li><strong>par_q[PARQUINT]:</strong> Fraction of parents in an income quintile [PARQUINT]. 1 is the bottom quintile and 5 is the top.  </li>
 
-          <li><strong>Passenger Count:</strong> Number of passengers boarded on flight</li>
+          <li><strong>par_top[PCTILE]pc:</strong> Fraction of parents in the top percentile [PCTILE]. For instance, par_toppt1pc refers to parents in the top 0.1% of the income distribution. </li>
 
 
         </ol>
@@ -143,7 +150,7 @@
         
         <h3 id="wrangling">Wrangling</h3>
 
-        <p>Data has been processed using the source website itself. You can find details of filters in each visualization page.</p>
+        <p>Data has been processed using Tableau. Dataset is narrowed down using columns: Type, Par Top1Pc, Par Q1, K Rank Cond Parq5 and K Rank Cond Parq1 .</p>
 
         <h2 id="visualizations">Visualizations</h2>
 
@@ -197,26 +204,24 @@ circle {
 
       <h6>D3 Implementation:</h6>
       
-      <h3>US Airlines Popularity Between Passengers</h3>
+      <h3>The Role of Colleges in Intergenerational Mobility</h3>
     <div id="plot"></div>
       
       <br>
       <br>
 
       <p>
-        The plot shows trends related to number of passengers using diffrent airlines starting from 2005 towards the end of 2019. The visualization has been encoded using different colors showing operating airline's names. The vertical axe shows number of passengers and horizontal line indicates the year when flights have been operated. It includes both domestic and International flights.
+        The plot shows that access to colleges varies greatly by parent income. For example, children  whose parents are in the top 1% of the income distribution are more likely to attend private schools than those whose parents are in the bottom income quintile. Also, children from low- and high-income families have similar earnings outcomes conditional on the college they attend, indicating that low-income students are not mismatched at selective colleges.
       </p>
 
-      <p>
-        The original dataset has been used for this visualization with filter on airline names column. In conclusion, United Airline's number of passengers has drastically increased over the period of 2012-2018. 
+      <p>Furthermore, Rates of upward mobility – the fraction of students who come from families in the bottom income quintile and reach the top quintile – differ substantially across colleges because low-income access varies significantly  across  colleges  with  similar  earnings  outcomes.</p>
 
-      </p>
-
+      
 
      <h6>Tableau Prototype:</h6>
       
       <figure class="media-left">
-            <p class="image is-960x500"><img src="line.jpg"></p>
+            <p class="image is-960x500"><img src="plot.jpg"></p>
           </figure>
 
     
